@@ -43,19 +43,14 @@ public class CountryRepositoryTest {
         assertEquals(combienDePaysDansLeJeuDeTest, nombre, "On doit trouver 4 pays" );
     }
 
-   /* @Test
-    void donneLeBonNombrePourLaPopulation() {
-        log.info("On vérifie que les populations de pays indiquées sont les bonnes");
+   @Test
+    void nbPopulationTotale() {
+        assertEquals(12, countryDAO.nbPopulation(1));
+    }
 
-        Country paysQuiExisteDeja = new Country("XX", "France");
-        try {
-            countryDAO.save(paysQuiExisteDeja); // On essaye d'enregistrer un pays dont le nom existe
-
-            fail("On doit avoir une violation de contrainte d'intégrité (unicité)");
-        } catch (DataIntegrityViolationException e) {
-            // Si on arrive ici c'est normal, l'exception attendue s'est produite
-        }
-    } */
-
+    @Test
+    void CountryPopulationParPaysTest(){
+        assertEquals(countryDAO.PopParPays().size(), countryDAO.count());
+    }
 
 }
